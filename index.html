@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ritesh Kumar</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #8e2de2, #ff416c);
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: white;
+      color: #d6006f;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #d6006f;
+    }
+
+    .menu-toggle {
+      font-size: 26px;
+      cursor: pointer;
+      color: #d6006f;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      z-index: 999;
+    }
+
+    .nav-links a {
+      padding: 12px 20px;
+      text-decoration: none;
+      color: #333;
+      border-bottom: 1px solid #eee;
+    }
+
+    .nav-links a:hover {
+      background-color: #f2f2f2;
+    }
+
+    .nav-links.show {
+      display: flex;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+    }
+
+    .section {
+      display: none;
+      padding: 40px 20px;
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .section h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .section a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .icon-img {
+      vertical-align: middle;
+      margin-right: 8px;
+      width: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Ritesh Kumar</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <!-- Dropdown Menu -->
+  <nav class="nav-links" id="navLinks">
+    <a href="#" onclick="showSection('home')">Home</a>
+    <a href="#" onclick="showSection('about')">About</a>
+    <a href="#" onclick="showSection('project')">Project</a>
+    <a href="#" onclick="showSection('contact')">Contact</a>
+  </nav>
+
+  <!-- Hero Section (Home) -->
+  <section class="hero section active" id="home">
+    <img src="https://i.postimg.cc/gc7p0v52/IMG-20250630-134404.jpg" alt="Ritesh Photo" class="profile-img" />
+    <h1>Hi, I'm Ritesh Kumar</h1>
+    <p class="subtitle">Web Developer • Student • Tech Enthusiast</p>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <p>
+      My name is <strong>Ritesh Kumar</strong>. I study in <strong>Class 12 (B1)</strong> at  
+      <strong>DR B P P S Sarvodaya IC, Ramganj, Milkipur, Ayodhya, Uttar Pradesh</strong>.<br><br>
+      My father's name is <strong>Shri [Amar nath]</strong> and my mother's name is  
+      <strong>Smt. [Manju]</strong>.<br><br>
+      I started my coding journey by learning <strong>HTML, CSS, and JavaScript</strong>. I love  
+      creating websites, building games, and experimenting with web design.
+    </p>
+    <p>
+    <strong>
+    Eligibility:–
+    </strong>
+    I have passed high  school with 85.66% marks.</p>
+  </section>
+
+  <!-- Project Section -->
+  <section class="section" id="project">
+    <h2>My Project</h2>
+    <p>🎮 Wordle Game: <a href="https://ritesh84ya2008.github.io/Wordle-Game/" target="_blank">Play Now</a></p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <h2>Contact Me</h2>
+    <p>📞 Mobile: <a href="tel:+91 9450091853">+91-9450091853</a></p>
+    <p>📧 Email: <a href="mailto:riteshkumar@email.com">riteshkumar@email.com</a></p>
+
+    <p>
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" class="icon-img" />
+      <a href="https://wa.me/919450091853" target="_blank" style="color:white;">Message on WhatsApp</a>
+    </p>
+
+    <p>
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="icon-img" />
+      <a href="https://instagram.com/your_username" target="_blank" style="color:white;">@Ritesh Kumar</a>
+    </p>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+
+    function showSection(sectionId) {
+      document.getElementById("navLinks").classList.remove("show");
+      const allSections = document.querySelectorAll('.section');
+      allSections.forEach(section => section.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Hide dropdown if clicked outside
+    window.onclick = function(e) {
+      if (!e.target.matches('.menu-toggle')) {
+        const menu = document.getElementById("navLinks");
+        if (menu && menu.classList.contains("show")) {
+          menu.classList.remove("show");
+        }
+      }
+    };
+  </script>
+</body>
+</html>
